@@ -1,4 +1,5 @@
-import { constructProxy } from './proxy.js'
+import { constructProxy } from './proxy.js';
+import { mount } from './mount.js';
 
 let uid = 0;
 export function initMixin(Yue) {
@@ -10,6 +11,12 @@ export function initMixin(Yue) {
         console.log(options, 'data')
         if (options && options.data) {
             vm._data = constructProxy(vm, options.data, "");
+        }
+
+        // 初始化el挂载
+        if (options && options.el) {
+            let rootDom = document.getElementById(options.el);
+            mount(vm, rootDom)
         }
     }
 }
