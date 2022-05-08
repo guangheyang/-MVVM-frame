@@ -1,3 +1,5 @@
+import {renderData} from "./render.js"
+// 监听那个数据被修改了
 export function constructProxy(vm, obj, namespace) {
     // vm 表示Yue对象
     // obj表示要进行代理的对象
@@ -20,15 +22,14 @@ export function constructProxy(vm, obj, namespace) {
 function constructObjectProxy(vm, obj, namespace) {
     let proxyObj = {};
     for (let prop in obj) {
-        console.log(prop);
         Object.defineProperty(proxyObj, prop, {
             configurable: true,
             get() {
                 return obj[prop];
             },
             set: function(value) {
-                console.log(getNameSpace(namespace, prop))
                 obj[prop] = value
+                renderData(vm, getNameSpace(namespace, prop))
             }
         })
         Object.defineProperty(vm, prop, {
@@ -37,8 +38,8 @@ function constructObjectProxy(vm, obj, namespace) {
                 return obj[prop];
             },
             set: function(value) {
-                console.log(getNameSpace(namespace, prop))
                 obj[prop] = value
+                renderData(vm, getNameSpace(namespace, prop))
             }
         })
         if (obj[prop] instanceof Object) {
@@ -48,10 +49,11 @@ function constructObjectProxy(vm, obj, namespace) {
     return proxyObj;
 }
 
+
 function getNameSpace(nowNameSpace, nowProp) {
-    if (nowNameSpace == null || nowNameSpace == '') {
+    if (nowNameSpace == null || nowNameSpace === '') {
         return nowProp
-    } else if (nowProp == null || nowNameSpace == '') {
+    } else if (nowProp == null || nowNameSpace === '') {
         return nowNameSpace
     } else {
         return nowNameSpace + '.' + nowProp
@@ -89,7 +91,7 @@ function defArrayFunc(obj, func, namespace, vm) {
         value: function(...args) {
             let original = arrayProto[func]
             const result = original.apply(this, args);
-            console.log(getNameSpace(namespace, ''))
+            renderData(vm, obj)
             return result;
         }
     })

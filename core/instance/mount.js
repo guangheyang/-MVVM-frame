@@ -1,4 +1,5 @@
 import VNode from "../vdom/vnode.js";
+import {perpareRender, getTemplate} from "./render.js";
 
 export function initMount(Yue) {
     Yue.prototype.$mount = function(el) {
@@ -7,12 +8,14 @@ export function initMount(Yue) {
         mount(vm, rootDom)
     }
 }
-export function mount(vm, el) {
+export function mount(vm, elm) {
     // console.log('begin mount');
     // 进行挂载
-    vm._vnode = constructVNode(vm, el, null);
-    console.log(vm, '_node')
+    vm._vnode = constructVNode(vm, elm, null);
     // 进行预备渲染
+    perpareRender(vm, vm._vnode)
+    console.log(getTemplate.setTemplateVnode())
+    console.log(getTemplate.setVnodeTemplate())
 }
 
 // 深度优先搜索
@@ -25,7 +28,6 @@ function constructVNode(vm, elm, parent) {
     let tag = elm.nodeName;
     vnode = new VNode(tag, elm, children, text, data, parent, nodeType)
     let childs = vnode.elm.childNodes;
-    console.log(childs.length, 'childs')
     for (let i = 0; i < childs.length; i++) {
         let childNodes = constructVNode(vm, childs[i], vnode);
         if (childNodes instanceof VNode) { // 返回单一节点
@@ -34,12 +36,11 @@ function constructVNode(vm, elm, parent) {
             vnode.children = vnode.children.concat(childNodes);
         }
     }
-    console.log(vnode, 'node')
     return vnode;
 }
 
 function getNodeText(el) {
-    if (el.nodeText == 3) {
+    if (el.nodeType === 3) {
         return el.nodeValue;
     } else {
         return '';
