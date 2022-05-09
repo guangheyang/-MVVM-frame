@@ -12,6 +12,9 @@
     你好，{{content}}, {{description}}
     <span>{{description}}</span>
     <input type="text" v-model="obj.x" /><span>{{ obj.x }}</span>
+    <ul>
+        <li v-for="(item,index) in list">姓名：{{ item.a }},年龄：{{ item.b }}</li>
+    </ul>
 </div>
 <script type="module">
     import Yue from './core/index.js';

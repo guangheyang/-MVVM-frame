@@ -90,8 +90,8 @@ export function renderMixin(Yue) {
 
 function getTemplateValue(objs, templateName) {
     for (let i = 0; i < objs.length; i++) {
-        let temp = getValue(objs[i], templateName.trim())
-        if (temp !== null) {
+        let temp = getValue(objs[i], templateName)
+        if (temp) {
             return temp
         }
     }
