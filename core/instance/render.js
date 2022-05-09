@@ -1,13 +1,14 @@
 import {getValue} from "../util/ObjectUtil.js";
 
-export function perpareRender(vm , vnode) {
+export function prepareRender(vm , vnode) {
     if (vnode === null) return;
     if (vnode.nodeType === 3) {
         analysisTemplateSting(vnode)
     }
     if (vnode.nodeType === 1) {
+        analysisAttr(vm, vnode)
         for (let i = 0; i < vnode.children.length; i++) {
-            perpareRender(vm, vnode.children[i]);
+            prepareRender(vm, vnode.children[i]);
         }
     }
 }
@@ -51,15 +52,6 @@ function setTemplateName(template) {
     }
 }
 
-export const getTemplate = {
-    setVnodeTemplate() {
-        return vnode2Template
-    },
-    setTemplateVnode() {
-        return template2Vnode
-    }
-}
-
 export function renderNode(vm, vnode) {
     if (vnode.nodeType === 3) {
         const templates = vnode2Template.get(vnode);
@@ -74,6 +66,14 @@ export function renderNode(vm, vnode) {
                 }
             })
             vnode.elm.nodeValue = result
+        }
+    } else if(vnode.nodeType === 1 && vnode.tag === "INPUT") {
+        const templates = vnode2Template.get(vnode);
+        if (templates) {
+            templates.forEach(item => {
+                let templateValue = getTemplateValue([vm._data, vnode.env], item)
+                vnode.elm.value = templateValue
+            })
         }
     } else {
         for(let i = 0; i < vnode.children.length; i++) {
@@ -99,13 +99,18 @@ function getTemplateValue(objs, templateName) {
 }
 
 export function renderData(vm, vnode) {
-    console.log(vnode, 'node')
     let vnodes = template2Vnode.get(vnode)
-    console.log(vnodes, 'vnode')
     if (vnodes) {
         vnodes.forEach(item => {
-            console.log(item, 'item')
             renderNode(vm, item)
         })
+    }
+}
+
+function analysisAttr(vm, vnode) {
+    const attrNames = vnode.elm.getAttributeNames();
+    if (attrNames.includes('v-model')) {
+        setTemplate2Vnode(vnode.elm.getAttribute('v-model'), vnode)
+        setVnode2Template(vnode.elm.getAttribute('v-model'), vnode)
     }
 }

@@ -1,5 +1,6 @@
 import VNode from "../vdom/vnode.js";
-import {perpareRender, getTemplate} from "./render.js";
+import {prepareRender} from "./render.js";
+import {vmodel} from "./grammer/vmodel.js";
 
 export function initMount(Yue) {
     Yue.prototype.$mount = function(el) {
@@ -13,13 +14,12 @@ export function mount(vm, elm) {
     // 进行挂载
     vm._vnode = constructVNode(vm, elm, null);
     // 进行预备渲染
-    perpareRender(vm, vm._vnode)
-    console.log(getTemplate.setTemplateVnode())
-    console.log(getTemplate.setVnodeTemplate())
+    prepareRender(vm, vm._vnode)
 }
 
 // 深度优先搜索
 function constructVNode(vm, elm, parent) {
+    analysisAttr(vm, elm, parent)
     let vnode = null;
     let children = [];
     let text = getNodeText(elm);
@@ -44,5 +44,14 @@ function getNodeText(el) {
         return el.nodeValue;
     } else {
         return '';
+    }
+}
+
+function analysisAttr(vm, elm, parent) {
+    if (elm.nodeType === 1) {
+        let attrNames = elm.getAttributeNames()
+        if (attrNames.includes('v-model')) {
+            vmodel(vm, elm, elm.getAttribute('v-model'))
+        }
     }
 }
