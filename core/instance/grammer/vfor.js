@@ -2,7 +2,7 @@ import VNode from "../../vdom/vnode.js";
 import {getValue} from "../../util/ObjectUtil.js";
 
 export function vforInit(vm, elm, parent, instructions) {
-    const virtualNode = new VNode(elm.nodeName, elm, [], "", getVirtualNodeData(instructions)[1], parent, 0)
+    const virtualNode = new VNode(elm.nodeName, elm, [], "", getVirtualNodeData(instructions)[2], parent, 0)
     virtualNode.instructions = instructions
     parent.elm.removeChild(elm)
     parent.elm.appendChild(document.createTextNode(""))
@@ -18,7 +18,6 @@ function getVirtualNodeData(instructions){
 function analysisInstructions(vm, elm, parent, instructions) {
     const insSet = getVirtualNodeData(instructions)
     const dataSet = getValue(vm._data, insSet[insSet.length -1])
-    console.log(insSet, dataSet)
     if (!dataSet) {
         throw new Error('error')
     }

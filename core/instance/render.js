@@ -1,16 +1,19 @@
 import {getValue} from "../util/ObjectUtil.js";
 
 export function prepareRender(vm , vnode) {
-    if (vnode === null) return;
+    if (!vnode) return;
     if (vnode.nodeType === 3) {
         analysisTemplateSting(vnode)
     }
-    if (vnode.nodeType === 1) {
-        analysisAttr(vm, vnode)
-        for (let i = 0; i < vnode.children.length; i++) {
-            prepareRender(vm, vnode.children[i]);
-        }
+    if (vnode.nodeType === 0) {
+        setVnode2Template(vnode.data, vnode)
+        setTemplate2Vnode(vnode.data, vnode)
     }
+    analysisAttr(vm, vnode)
+    for (let i = 0; i < vnode.children.length; i++) {
+        prepareRender(vm, vnode.children[i]);
+    }
+
 }
 
 function analysisTemplateSting(vnode) {
@@ -25,6 +28,7 @@ let template2Vnode  = new Map()
 let vnode2Template  = new Map()
 
 function setTemplate2Vnode(template, vnode) {
+    console.log(template, 'template')
     const templateName = setTemplateName(template)
     const vnodeSet = template2Vnode.get(templateName)
     if (vnodeSet) {
@@ -108,9 +112,21 @@ export function renderData(vm, vnode) {
 }
 
 function analysisAttr(vm, vnode) {
-    const attrNames = vnode.elm.getAttributeNames();
-    if (attrNames.includes('v-model')) {
-        setTemplate2Vnode(vnode.elm.getAttribute('v-model'), vnode)
-        setVnode2Template(vnode.elm.getAttribute('v-model'), vnode)
+    if (vnode.nodeType === 1) {
+        const attrNames = vnode.elm.getAttributeNames();
+        if (attrNames.includes('v-model')) {
+            setTemplate2Vnode(vnode.elm.getAttribute('v-model'), vnode)
+            setVnode2Template(vnode.elm.getAttribute('v-model'), vnode)
+        }
     }
+}
+
+export function getVNodeByTemplate(template) {
+    console.log(template, template2Vnode,'tep')
+    return template2Vnode.get(template)
+}
+
+export function clearMap() {
+    template2Vnode.clear()
+    vnode2Template.clear()
 }

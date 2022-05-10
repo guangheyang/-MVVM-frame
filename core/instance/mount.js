@@ -1,5 +1,5 @@
 import VNode from "../vdom/vnode.js";
-import {prepareRender} from "./render.js";
+import {prepareRender, getVNodeByTemplate ,clearMap} from "./render.js";
 import {vmodel} from "./grammer/vmodel.js";
 import {vforInit} from "./grammer/vfor.js";
 import {mergeAttr} from "../util/ObjectUtil.js";
@@ -35,7 +35,7 @@ function constructVNode(vm, elm, parent) {
             vnode.env = mergeAttr(vnode.env, parent ? parent.env : {})
         }
     }
-    let childs = vnode.elm.childNodes;
+    let childs = vnode.nodeType === 0 ? vnode.parent.elm.childNodes : vnode.elm.childNodes
     for (let i = 0; i < childs.length; i++) {
         let childNodes = constructVNode(vm, childs[i], vnode);
         if (childNodes instanceof VNode) { // 返回单一节点
@@ -67,3 +67,14 @@ function analysisAttr(vm, elm, parent) {
     }
 }
 
+export function  rebuild(vm, template) {
+    let virtualNodes = getVNodeByTemplate(template)
+    for (let i = 0; i < virtualNodes.length; i++) {
+        virtualNodes[i].parent.elm.innerHTML = ""
+        virtualNodes[i].parent.elm.appendChild(virtualNodes[i].elm)
+        let result = constructVNode(vm, virtualNodes[i].elm, virtualNodes[i].parent)
+        virtualNodes[i].parent.children = [result]
+        clearMap()
+        prepareRender(vm, vm._vnode)
+    }
+}

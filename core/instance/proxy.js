@@ -1,4 +1,5 @@
 import {renderData} from "./render.js"
+import {rebuild} from "./mount.js";
 // 监听那个数据被修改了
 export function constructProxy(vm, obj, namespace) {
     // vm 表示Yue对象
@@ -53,7 +54,7 @@ function constructObjectProxy(vm, obj, namespace) {
 function getNameSpace(nowNameSpace, nowProp) {
     if (nowNameSpace == null || nowNameSpace === '') {
         return nowProp
-    } else if (nowProp == null || nowNameSpace === '') {
+    } else if (nowProp == null || nowProp === '') {
         return nowNameSpace
     } else {
         return nowNameSpace + '.' + nowProp
@@ -91,7 +92,8 @@ function defArrayFunc(obj, func, namespace, vm) {
         value: function(...args) {
             let original = arrayProto[func]
             const result = original.apply(this, args);
-            renderData(vm, obj)
+            rebuild(vm, getNameSpace(namespace, ""))
+            renderData(vm, getNameSpace(namespace, ""))
             return result;
         }
     })

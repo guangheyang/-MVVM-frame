@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="761b0395-c9ce-412d-a81a-15844479e6f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/instance/grammer/vfor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yue.html" beforeDir="false" afterPath="$PROJECT_DIR$/Yue.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/instance/grammer/vfor.js" beforeDir="false" afterPath="$PROJECT_DIR$/core/instance/grammer/vfor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/instance/mount.js" beforeDir="false" afterPath="$PROJECT_DIR$/core/instance/mount.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/instance/proxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/core/instance/proxy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/instance/render.js" beforeDir="false" afterPath="$PROJECT_DIR$/core/instance/render.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/util/ObjectUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/core/util/ObjectUtil.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,8 +22,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Yue.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+            <state relative-caret-position="150">
+              <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -31,8 +31,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/instance/proxy.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1012">
-              <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+            <state relative-caret-position="151">
+              <caret line="88" selection-start-line="88" selection-end-line="88" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/instance/mount.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+            <state relative-caret-position="107">
+              <caret line="37" column="68" selection-start-line="37" selection-start-column="68" selection-end-line="37" selection-end-column="68" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -76,15 +79,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/instance/render.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="93" selection-start-line="93" selection-end-line="93" />
+            <state relative-caret-position="219">
+              <caret line="117" column="71" lean-forward="true" selection-start-line="117" selection-start-column="71" selection-end-line="117" selection-end-column="71" />
               <folding>
-                <element signature="n#!!block;n#perpareRender#0" />
                 <element signature="n#!!block;n#analysisTemplateSting#0" />
-                <element signature="n#!!block;n#setTemplate2Vnode#0" />
                 <element signature="n#!!block;n#setTemplateName#0" />
                 <element signature="n#!!block;n#renderMixin#0" />
               </folding>
@@ -95,8 +96,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/instance/grammer/vfor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="27" column="41" lean-forward="true" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+            <state relative-caret-position="-265">
+              <caret line="8" column="42" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="42" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -127,10 +128,17 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>conso</find>
-      <find>analysisInstructions</find>
       <find>getValue</find>
       <find>renderNode</find>
       <find>getTemplateValue</find>
+      <find>pre</find>
+      <find>rebuild</find>
+      <find>setTemplate2Vnode</find>
+      <find>constructVNode</find>
+      <find>prepareRender</find>
+      <find>getNameSpace</find>
+      <find>analysisInstructions</find>
+      <find>analysisAttr</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -142,19 +150,19 @@
         <option value="$PROJECT_DIR$/core/index.js" />
         <option value="$PROJECT_DIR$/core/instance/init.js" />
         <option value="$PROJECT_DIR$/core/instance/index.js" />
-        <option value="$PROJECT_DIR$/core/instance/proxy.js" />
         <option value="$PROJECT_DIR$/core/instance/grammer/vmodel.js" />
         <option value="$PROJECT_DIR$/Yue.html" />
-        <option value="$PROJECT_DIR$/core/instance/grammer/vfor.js" />
-        <option value="$PROJECT_DIR$/core/instance/mount.js" />
         <option value="$PROJECT_DIR$/core/util/ObjectUtil.js" />
+        <option value="$PROJECT_DIR$/core/instance/proxy.js" />
+        <option value="$PROJECT_DIR$/core/instance/grammer/vfor.js" />
         <option value="$PROJECT_DIR$/core/instance/render.js" />
+        <option value="$PROJECT_DIR$/core/instance/mount.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-5" />
-    <option name="width" value="949" />
+    <option name="width" value="950" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -262,18 +270,19 @@
       <updated>1602253018833</updated>
       <workItem from="1602253028975" duration="6652000" />
       <workItem from="1652001908523" duration="19109000" />
-      <workItem from="1652064535154" duration="24740000" />
+      <workItem from="1652064535154" duration="25361000" />
+      <workItem from="1652186251487" duration="5474000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50501000" />
+    <option name="totallyTimeSpent" value="56596000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14068693" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14068693" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -285,7 +294,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -322,31 +331,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/instance/proxy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1012">
-          <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/instance/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/instance/init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/instance/grammer/vmodel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -357,20 +345,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Yue.html">
+    <entry file="file://$PROJECT_DIR$/core/instance/grammer/vmodel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/instance/grammer/vfor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="27" column="41" lean-forward="true" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="88">
+          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -381,26 +359,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/instance/mount.js">
+    <entry file="file://$PROJECT_DIR$/core/instance/init.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+        <state relative-caret-position="220">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yue.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/instance/proxy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="88" selection-start-line="88" selection-end-line="88" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/instance/grammer/vfor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-265">
+          <caret line="8" column="42" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/instance/render.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
+        <state relative-caret-position="219">
+          <caret line="117" column="71" lean-forward="true" selection-start-line="117" selection-start-column="71" selection-end-line="117" selection-end-column="71" />
           <folding>
-            <element signature="n#!!block;n#perpareRender#0" />
             <element signature="n#!!block;n#analysisTemplateSting#0" />
-            <element signature="n#!!block;n#setTemplate2Vnode#0" />
             <element signature="n#!!block;n#setTemplateName#0" />
             <element signature="n#!!block;n#renderMixin#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/instance/mount.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="37" column="68" selection-start-line="37" selection-start-column="68" selection-end-line="37" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
