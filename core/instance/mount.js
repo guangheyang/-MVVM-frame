@@ -3,6 +3,7 @@ import {prepareRender, getVNodeByTemplate ,clearMap} from "./render.js";
 import {vmodel} from "./grammer/vmodel.js";
 import {vforInit} from "./grammer/vfor.js";
 import {mergeAttr} from "../util/ObjectUtil.js";
+import {checkVBind} from "./grammer/vbind.js";
 
 export function initMount(Yue) {
     Yue.prototype.$mount = function(el) {
@@ -32,9 +33,10 @@ function constructVNode(vm, elm, parent) {
         if (elm.nodeType === 1 && elm.getAttribute('env')) {
             vnode.env = mergeAttr(vnode.env, JSON.parse(elm.getAttribute('env')))
         } else {
-            vnode.env = mergeAttr(vnode.env, parent ? parent.env : {})
+            vnode.env = mergeAttr(vnode.env, parent ? parent.env : { })
         }
     }
+    checkVBind(vm, vnode)
     let childs = vnode.nodeType === 0 ? vnode.parent.elm.childNodes : vnode.elm.childNodes
     for (let i = 0; i < childs.length; i++) {
         let childNodes = constructVNode(vm, childs[i], vnode);

@@ -8,6 +8,7 @@ export function initMixin(Yue) {
         const vm = this;
         vm.uid = uid++;
         vm._isYue = true;
+        vm._computed = {}
         // 初始化data
         if (options && options.data) {
             vm._data = constructProxy(vm, options.data, "");

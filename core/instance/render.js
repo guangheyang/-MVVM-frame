@@ -28,7 +28,6 @@ let template2Vnode  = new Map()
 let vnode2Template  = new Map()
 
 function setTemplate2Vnode(template, vnode) {
-    console.log(template, 'template')
     const templateName = setTemplateName(template)
     const vnodeSet = template2Vnode.get(templateName)
     if (vnodeSet) {
@@ -122,7 +121,6 @@ function analysisAttr(vm, vnode) {
 }
 
 export function getVNodeByTemplate(template) {
-    console.log(template, template2Vnode,'tep')
     return template2Vnode.get(template)
 }
 

@@ -7,7 +7,6 @@ export function vforInit(vm, elm, parent, instructions) {
     parent.elm.removeChild(elm)
     parent.elm.appendChild(document.createTextNode(""))
     const resultSet = analysisInstructions(vm, elm, parent, instructions);
-    console.log(virtualNode, 'v')
     return virtualNode;
 }
 

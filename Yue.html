@@ -6,15 +6,24 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .imgStyle {
+            width: 160px;
+            height: 90px;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
 <div id="test">
     你好，{{content}}, {{description}}
     <span>{{description}}</span>
-    <input type="text" v-model="obj.x" /><span>{{ obj.x }}</span>
+    <input type="text" v-model="object.x" /><span>{{ object.x }}</span>
     <ul>
         <li v-for="(item,index) in list">姓名：{{ item.a }},年龄：{{ item.b }}</li>
     </ul>
+    <img v-bind:src="imgSrc" :class="{ imgStyle: number > 1 }" />
+
 </div>
 <script type="module">
     import Yue from './core/index.js';
@@ -23,11 +32,14 @@
         data: {
             content: 'yang',
             description: 'say hello',
-            obj: {
+            number: 12,
+            object: {
                 x: 1,
                 y: 2
             },
-            list: [{a: 'yang', b :18}, {a: 'qq', b: 16}]
+            list: [{a: 'yang', b :18}, {a: 'qq', b: 16}],
+            imgStyle: 'imgStyle',
+            imgSrc: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2F4k%2Fs%2F02%2F2109250135543096-0-lp.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1654784693&t=88d25087919ed6530c931b7dd5b6bed8'
         }
     })
 </script>
